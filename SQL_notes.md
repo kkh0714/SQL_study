@@ -210,7 +210,7 @@ INNER JOIN Categories AS c ON Products.CategoryID = Categories.CategoryID;
 ```
 
 - `INNER JOIN` returns only rows with a match in both tables. No record would be returned if there is no match
-- *Refer to Leetcode - SQL 50 - Average Time of Process per Machine*
+- *Refer to Leetcode - SQL 50 - 1661. Average Time of Process per Machine*
   - Hint: When we have all the information in one table, we create a duplicated table with `JOIN`. With two identical table, we manipulate the data using conditional argument.
 
 ## CROSS JOIN
@@ -224,5 +224,16 @@ CROSS JOIN table2;
 - `CROSS JOIN` returns all records from both tables no matter there is matching or no matching records
 - If `WHERE` clause is added, e.g. WHERE a.id = b.id, it will produce the same result as the `INNER JOIN` clause
 
+## IF()
 
+```SQL
+IF(condition, value_if_true, value_if_false);
+
+SELECT IF(500<1000, 5, 10);
+
+SELECT OrderID, Quantity, IF(Quantity>10, "MORE", "LESS")
+FROM OrderDetails;
+```
+
+- *Refer to Leetcode - SQL 50 - 1934. Confirmation Rate*
 
