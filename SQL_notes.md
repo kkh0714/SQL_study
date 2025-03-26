@@ -201,6 +201,9 @@ ON table1.column_name = table2.column_name;
 
 - *Refer to LeetCode - SQL 50 - Customer Who Visited but Did Not Make Any Transactions*
 
+Example:
+![alt text](left_join_example.png)
+
 ## JOIN = INNER JOIN (contrast to left/right join)
 
 ```SQL
