@@ -255,3 +255,17 @@ GROUP BY p.product_id
 - Each specific sale is specified due to the `BETWEEN` condition
 - `SUM(p.price * u.units)` adds up the total revenue across all matching/specific sales
 - *Refer to LeetCode - SQL 50 - 1251. Average Selling Price*
+
+## Subquery
+
+```SQL
+SELECT contest_id, ROUND(COUNT(r.user_id)/(SELECT COUNT(user_id) FROM Users)*100, 2) AS percentage
+FROM Register AS r
+GROUP BY r.contest_id
+ORDER BY percentage DESC, contest_id ASC
+```
+
+- A `subquery` is essentially a query nested within another query, allowing users to perform operations that depend on the results of `another query`
+- This makes it invaluable for tasks such as `filtering`, `calculating aggregates`, or even modifying data dynamically
+- *Refer to LeetCode - SQL 50 - 1633.Percentage Of Users Attended A Contest*
+
