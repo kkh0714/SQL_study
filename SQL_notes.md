@@ -199,7 +199,7 @@ ON table1.column_name = table2.column_name;
 
 - `LEFT JOIN` returns all records from the left table (table1), and the matching records from the right table (table2). All records from the left table are returned, even if there are no matches in the right table.
 
-- *Refer to Leetcode - SQL 50 - Customer Who Visited but Did Not Make Any Transactions*
+- *Refer to LeetCode - SQL 50 - Customer Who Visited but Did Not Make Any Transactions*
 
 ## JOIN = INNER JOIN (contrast to left/right join)
 
@@ -210,7 +210,7 @@ INNER JOIN Categories AS c ON Products.CategoryID = Categories.CategoryID;
 ```
 
 - `INNER JOIN` returns only rows with a match in both tables. No record would be returned if there is no match
-- *Refer to Leetcode - SQL 50 - 1661. Average Time of Process per Machine*
+- *Refer to LeetCode - SQL 50 - 1661. Average Time of Process per Machine*
   - Hint: When we have all the information in one table, we create a duplicated table with `JOIN`. With two identical table, we manipulate the data using conditional argument.
 
 ## CROSS JOIN
@@ -235,5 +235,20 @@ SELECT OrderID, Quantity, IF(Quantity>10, "MORE", "LESS")
 FROM OrderDetails;
 ```
 
-- *Refer to Leetcode - SQL 50 - 1934. Confirmation Rate*
+- *Refer to LeetCode - SQL 50 - 1934. Confirmation Rate*
 
+## SUM()
+
+```SQL
+SELECT p.product_id, IFNULL(ROUND(SUM(p.price*u.units)/SUM(u.units), 2), 0) AS average_price
+FROM Prices AS p
+LEFT JOIN UnitsSold AS u
+ON p.product_id = u.product_id
+AND u.purchase_date BETWEEN p.start_date AND p.end_date
+GROUP BY p.product_id
+```
+
+- `p.price` is the price of the product during that specific period, and `u.units`  is the number of units sold during that specific period. Multiplying these gives the total revenue for that specific sale
+- Each specific sale is specified due to the `BETWEEN` condition
+- `SUM(p.price * u.units)` adds up the total revenue across all matching/specific sales
+- *Refer to LeetCode - SQL 50 - 1251. Average Selling Price*
