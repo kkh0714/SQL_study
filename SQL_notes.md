@@ -269,3 +269,20 @@ ORDER BY percentage DESC, contest_id ASC
 - This makes it invaluable for tasks such as `filtering`, `calculating aggregates`, or even modifying data dynamically
 - *Refer to LeetCode - SQL 50 - 1633.Percentage Of Users Attended A Contest*
 
+## COUNT()
+
+```SQL
+SELECT DATE_FORMAT(trans_date, '%Y-%m') AS month,
+country,
+COUNT(id) AS trans_count,
+SUM(IF(state="approved", 1, 0)) AS approved_count,
+SUM(amount) AS trans_total_amount,
+SUM(IF(state="approved", amount, 0)) AS approved_total_amount
+FROM Transactions
+GROUP BY country, month
+```
+
+- The question is why we are using `SUM()` instead of `COUNT()` for `SUM(IF(state="approved", 1, 0)) AS approved_count`?
+  - `COUNT()` counts on non-Null values. Since the result will return either 1 or 0, `COUNT()` counts on both 1 or 0. As a result, it will not be correct
+- *Refer to LeetCode - SQL 50 - 1193.Monthly Transactions I*
+
