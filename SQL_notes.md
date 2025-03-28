@@ -269,6 +269,35 @@ ORDER BY percentage DESC, contest_id ASC
 - This makes it invaluable for tasks such as `filtering`, `calculating aggregates`, or even modifying data dynamically
 - *Refer to LeetCode - SQL 50 - 1633.Percentage Of Users Attended A Contest*
 
+## IN
+
+```SQL
+SELECT * FROM Customers
+WHERE Country IN ('Germany', 'France', 'UK');
+```
+
+- The `IN` operator allows you to specify multiple values in a `WHERE` clause
+- The `IN` operator is a shorthand for multiple `OR` conditions
+
+## IN (SELECT)
+
+```SQL
+SELECT ROUND(AVG(order_date = customer_pref_delivery_date)*100, 2) AS immediate_percentage
+FROM Delivery
+WHERE (customer_id, order_date) IN (
+    SELECT customer_id, MIN(order_date)
+    FROM Delivery
+    GROUP BY customer_id
+)
+```
+
+- With a subquery you can return all records from the main query that are present in the result of the subquery
+
+- `order_date = customer_pref_delivery_date` creates a Boolean expression
+  - If the dates match, it returns `TRUE` (which is equivalent to `1`)
+  - If the dates don't match, it returns `FALSE` (which is equivalent to `0`)
+- *Refer to LeetCode - SQL 50 - 1174. Immediate Food Delivery II*
+
 ## COUNT()
 
 ```SQL
