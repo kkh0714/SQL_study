@@ -226,6 +226,8 @@ CROSS JOIN table2;
 
 - `CROSS JOIN` returns all records from both tables no matter there is matching or no matching records
 - If `WHERE` clause is added, e.g. WHERE a.id = b.id, it will produce the same result as the `INNER JOIN` clause
+- `CROSS JOIN` is VERY HELPFUL in case you want to look up `a_id` that belongs to `b_id` in the same table
+- *Refer to LeetCode - SQL 50 - 1731. TheNumberOfEmployeesWhichReportToEachEmployee*
 
 ## IF()
 
