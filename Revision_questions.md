@@ -11,3 +11,5 @@ CROSS JOIN:
 - 1661. Average Time of Process per Machine
 - 1280. Students and Examinations
 
+Hard:
+1164. Product Price at a Given Date
