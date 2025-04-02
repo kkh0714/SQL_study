@@ -345,3 +345,10 @@ WHERE (product_id, change_date) IN (
 );
 ```
 
+- The `UNION` operator is used to combine the result-set of two or more `SELECT` statements.
+
+- Every `SELECT` statement within `UNION` must have the same number of columns
+
+- The columns must also have similar data types and in the same order
+  - It is VERY USEFUL if we use the same table
+- The `UNION` operator selects only distinct values by default. To allow duplicate values, use `UNION ALL`
