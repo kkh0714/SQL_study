@@ -164,13 +164,26 @@ WHERE name BETWEEN 'A' AND 'J';
 
 ```sql
 SELECT name,
- CASE
-  WHEN genre = 'romance' THEN 'Chill'
-  WHEN genre = 'comedy' THEN 'Chill'
-  ELSE 'Intense'
- END AS 'Mood' #Rename the new column as Mood
+	CASE
+		WHEN genre = 'romance' THEN 'Chill'
+		WHEN genre = 'comedy' THEN 'Chill'
+		ELSE 'Intense'
+	END AS 'Mood' #Rename the new column as Mood
 FROM movies;
 ```
+
+```sql
+SELECT
+    CASE 
+        WHEN id%2 = 0 THEN id-1
+        WHEN id%2 = 1 AND id+1 IN (SELECT id FROM Seat WHERE id IS NOT NULL) THEN id+1
+        ELSE id
+    END AS id, student
+FROM Seat
+ORDER BY id
+```
+
+- *Refer to LeetCode - SQL 50 - 626. Exchange Seats*
 
 ## ORDER BY
 
@@ -199,7 +212,7 @@ ON table1.column_name = table2.column_name;
 
 - `LEFT JOIN` returns all records from the left table (table1), and the matching records from the right table (table2). All records from the left table are returned, even if there are no matches in the right table.
 
-- *Refer to LeetCode - SQL 50 - Customer Who Visited but Did Not Make Any Transactions*
+- *Refer to LeetCode - SQL 50 - 1581. Customer Who Visited but Did Not Make Any Transactions*
 
 Example:
 ![alt text](left_join_example.png)
@@ -352,3 +365,4 @@ WHERE (product_id, change_date) IN (
 - The columns must also have similar data types and in the same order
   - It is VERY USEFUL if we use the same table
 - The `UNION` operator selects only distinct values by default. To allow duplicate values, use `UNION ALL`
+  - `UNION ALL` is less computationally expensive as it does not need to filter out the duplicate rows
