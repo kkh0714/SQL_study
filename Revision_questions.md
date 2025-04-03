@@ -5,6 +5,8 @@
 1045. Customers Who Bought All Products
 1789. Primary Department for Each Employee
 180. Consecutive Numbers
+626. Exchange Seats
+1341. Movie Rating
 
 CROSS JOIN: 
 - 1731. The Number of Employees Which Report to Each Employee 
