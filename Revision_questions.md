@@ -7,6 +7,7 @@
 180. Consecutive Numbers
 626. Exchange Seats
 1341. Movie Rating
+176. Second Highest Salary
 
 CROSS JOIN: 
 - 1731. The Number of Employees Which Report to Each Employee 
