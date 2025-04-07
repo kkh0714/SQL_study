@@ -140,6 +140,12 @@ WHERE name LIKE '%man%';
 
 - any movie that *contains* the word ‘man’ in its name will be returned in the result.
 
+```sql
+SELECT *
+FROM Patients
+WHERE conditions LIKE 'DIAB1%' OR conditions LIKE '% DIAB1%'
+```
+
 ## IS NULL and IS NOT NULL
 
 ```sql
@@ -367,3 +373,28 @@ WHERE (product_id, change_date) IN (
   - It is VERY USEFUL if we use the same table
 - The `UNION` operator selects only distinct values by default. To allow duplicate values, use `UNION ALL`
   - `UNION ALL` is less computationally expensive as it does not need to filter out the duplicate rows
+
+## LEFT()
+
+```sql
+SELECT LEFT('SQL Tutorial', 3) AS ExtractString;
+# Extract 3 characters from a string (starting from left)
+# Ans: SQL
+```
+
+## RIGHT()
+
+```sql
+SELECT RIGHT('SQL Tutorial', 3) AS ExtractString;
+# ANS: ial
+```
+
+## SUBSTRING()
+
+```sql
+SELECT SUBSTRING('SQL Tutorial', 3, 3) AS ExtractString;
+# Extract 3 characters from a string, starting in position 1
+# Ans: L T
+```
+
+- The 1st argument is about the object. The 2nd argument is about the position to start. The 3rd argument is about how many characters to extract starting from the position specified in the 2nd argument
